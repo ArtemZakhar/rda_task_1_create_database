@@ -5,7 +5,7 @@ CREATE TABLE Products (
     ID INT AUTO_INCREMENT,
     Name VARCHAR(50),
     Description VARCHAR(100),
-    Price INT,
+    Price VARCHAR(100),
     WarehouseAmount INT,
     PRIMARY KEY (ID)
 );
@@ -14,8 +14,8 @@ CREATE TABLE Customers (
     ID INT AUTO_INCREMENT,
     FirstName VARCHAR(50),
     LastName VARCHAR(50),
-    Email VARCHAR(50),
-    Address VARCHAR(50),
+    Email VARCHAR(100),
+    Address VARCHAR(100),
     PRIMARY KEY (ID)
 );
 
