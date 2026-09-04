@@ -1,37 +1,37 @@
-CREATE DATABASE IF NOT EXISTS ShopDB;
+CREATE DATABASE ShopDB;
 USE ShopDB;
 
-CREATE TABLE IF NOT EXISTS Products (
+CREATE TABLE Products (
     ID INT AUTO_INCREMENT,
-    Name VARCHAR(50) NOT NULL,
-    Description VARCHAR(255),
-    Price DECIMAL(10, 2) NOT NULL,
-    WarehouseAmount INT NOT NULL,
+    Name VARCHAR(50),
+    Description VARCHAR(100),
+    Price INT,
+    WarehouseAmount INT,
     PRIMARY KEY (ID)
 );
 
-CREATE TABLE IF NOT EXISTS Customers (
+CREATE TABLE Customers (
     ID INT AUTO_INCREMENT,
-    FirstName VARCHAR(50) NOT NULL,
-    LastName VARCHAR(100) NOT NULL,
-    Email VARCHAR(255),
-    Address TEXT,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    Email VARCHAR(50),
+    Address VARCHAR(50),
     PRIMARY KEY (ID)
 );
 
-CREATE TABLE IF NOT EXISTS Orders (
+CREATE TABLE Orders (
     ID INT AUTO_INCREMENT,
-    CustomerID INT,
+    CustomerID INT, 
     FOREIGN KEY (CustomerID) REFERENCES Customers(ID) ON DELETE SET NULL,
-    Date DATE NOT NULL,
+    Date DATE,
     PRIMARY KEY (ID)
 );
 
-CREATE TABLE IF NOT EXISTS OrderItems (
+CREATE TABLE OrderItems (
     ID INT AUTO_INCREMENT,
-    OrderID INT,
+    OrderID INT, 
     FOREIGN KEY (OrderID) REFERENCES Orders(ID) ON DELETE SET NULL,
-    ProductID INT,
+	ProductID INT, 
     FOREIGN KEY (ProductID) REFERENCES Products(ID) ON DELETE SET NULL,
     PRIMARY KEY (ID)
 );
